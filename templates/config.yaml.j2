@@ -3,7 +3,13 @@ network:
   version: 2
   renderer: networkd
 {% if netplan_interfaces|length > 0 %}
-    {# TODO not implemented #}
+  ethernets:
+    {% for iface in netplan_interfaces %}
+    {{ iface.name }}:
+        {% if iface.dhcp4 is defined %}
+      dhcp4: {{ "true" if iface.dhcp4 else "false" }}
+        {% endif %}
+    {% endfor %}
 {% else %}
   ethernets: {}
 {% endif %}

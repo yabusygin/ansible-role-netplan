@@ -1,0 +1,4 @@
+---
+netplan_interfaces:
+  - name: eth0
+    dhcp4: yes
