@@ -1,2 +1,2 @@
 ---
-netplan_interfaces: {}
+netplan_ethernets: {}

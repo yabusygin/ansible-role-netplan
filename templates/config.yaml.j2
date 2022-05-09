@@ -3,28 +3,28 @@ network:
   version: 2
   renderer: networkd
   ethernets:
-{% for iface in netplan_interfaces %}
-    {{ iface.name }}:
-    {% if iface.dhcp4 is defined %}
-      dhcp4: {{ "true" if iface.dhcp4 else "false" }}
+{% for iface_name, iface_params in netplan_ethernets.items() %}
+    {{ iface_name }}:
+    {% if iface_params.dhcp4 is defined %}
+      dhcp4: {{ "true" if iface_params.dhcp4 else "false" }}
     {% endif %}
-    {% if iface.addresses is defined %}
+    {% if iface_params.addresses is defined %}
       addresses:
-        {% for address in iface.addresses %}
+        {% for address in iface_params.addresses %}
         - {{ address }}
         {% endfor %}
     {% endif %}
-    {% if iface.routes is defined %}
+    {% if iface_params.routes is defined %}
       routes:
-        {% for route in iface.routes %}
+        {% for route in iface_params.routes %}
         - to: {{ route.to }}
           via: {{ route.via }}
         {% endfor %}
     {% endif %}
-    {% if iface.nameservers.addresses is defined %}
+    {% if iface_params.nameservers.addresses is defined %}
       nameservers:
         addresses:
-        {% for address in iface.nameservers.addresses %}
+        {% for address in iface_params.nameservers.addresses %}
           - {{ address }}
         {% endfor %}
     {% endif %}

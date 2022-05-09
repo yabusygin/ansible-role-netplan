@@ -1,6 +1,6 @@
 ---
-netplan_interfaces:
-  - name: eth0
+netplan_ethernets:
+  eth0:
     addresses:
       - 192.168.0.10/24
     routes:
