@@ -1,9 +1,5 @@
 ---
 tests:
-  - name: default
-    template: config.yaml.j2
-    expected_result: default/config.yaml
-
   - name: DHCP
     template: config.yaml.j2
     variables:
