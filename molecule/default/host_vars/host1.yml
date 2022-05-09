@@ -1,0 +1,7 @@
+---
+ansible_python_interpreter: python3
+
+netplan_ethernets:
+  eth1:
+    addresses:
+      - 192.168.0.101/24

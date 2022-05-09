@@ -1,0 +1,25 @@
+---
+- name: converge
+  hosts: host1:host2
+  tasks:
+    - name: enable networkd
+      ansible.builtin.systemd:
+        name: systemd-networkd.service
+        enabled: yes
+        state: started
+
+    - name: install test dependencies
+      ansible.builtin.apt:
+        name:
+          - iputils-ping
+          # Fixes Netplan failure. The following exception is thrown on
+          # "netplan apply" command execution:
+          # FileNotFoundError: [Errno 2] No such file or directory: 'udevadm'
+          - udev
+        state: present
+        force_apt_get: yes
+        update_cache: yes
+
+    - name: configure Netplan
+      ansible.builtin.import_role:
+        name: netplan

@@ -1,0 +1,39 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint: ./lint.sh
+platforms:
+  - name: host1
+    image: geerlingguy/docker-ubuntu2004-ansible:latest
+    pre_build_image: true
+    command: ""
+    privileged: true
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - /var/lib/docker
+    keep_volumes: false
+    # Leave default network connection in order to access the Internet,
+    # otherwise ansible.builtin.apt will fail at idempotence test step.
+    networks_cli_compatible: no
+    networks:
+      - name: test-ansible-role-netplan
+  - name: host2
+    image: geerlingguy/docker-ubuntu2004-ansible:latest
+    pre_build_image: true
+    command: ""
+    privileged: true
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - /var/lib/docker
+    keep_volumes: false
+    # Leave default network connection in order to access the Internet,
+    # otherwise ansible.builtin.apt will fail at idempotence test step.
+    networks_cli_compatible: no
+    networks:
+      - name: test-ansible-role-netplan
+provisioner:
+  name: ansible
+verifier:
+  name: ansible
