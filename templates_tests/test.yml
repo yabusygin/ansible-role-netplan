@@ -1,0 +1,19 @@
+---
+tests:
+  - name: DHCP
+    template: config.yaml.j2
+    variables:
+      inventory: dhcp/inventory.yml
+    expected_result: dhcp/config.yaml
+
+  - name: static
+    template: config.yaml.j2
+    variables:
+      inventory: static/inventory.yml
+    expected_result: static/config.yaml
+
+  - name: multiple interfaces
+    template: config.yaml.j2
+    variables:
+      inventory: multiple_interfaces/inventory.yml
+    expected_result: multiple_interfaces/config.yaml
