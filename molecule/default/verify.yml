@@ -1,0 +1,8 @@
+---
+- name: verify
+  hosts: host1
+  gather_facts: no
+  tasks:
+    - name: ping host2
+      ansible.builtin.command: ping -c 3 192.168.0.102
+      changed_when: no
