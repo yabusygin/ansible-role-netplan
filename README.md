@@ -23,6 +23,9 @@ device properties is supported:
 - `routes` (`to` and `via` parameters only)
 - `nameservers` (`addresses` parameter only)
 
+To disable Cloud-init network configuration capability set
+`netplan_cloudinit_disable` to `yes`.
+
 [Reference]: https://netplan.io/reference/
 
 Dependencies
@@ -52,6 +55,7 @@ Example Playbook
             nameservers:
               addresses:
                 - 10.10.10.10
+        netplan_cloudinit_disable: yes
 ```
 
 License
