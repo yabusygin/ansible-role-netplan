@@ -15,3 +15,9 @@
     mode: u=rw,g=r,o=r
   notify:
     - netplan apply
+
+- name: disable Cloud-init network configuration
+  ansible.builtin.copy:
+    src: 99-disable-network-config.cfg
+    dest: /etc/cloud/cloud.cfg.d/
+    mode: u=rw,g=r,o=r
