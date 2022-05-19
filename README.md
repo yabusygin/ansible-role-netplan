@@ -55,6 +55,7 @@ Example Playbook
             nameservers:
               addresses:
                 - 10.10.10.10
+        netplan_cloudinit_disable: yes
 ```
 
 License
