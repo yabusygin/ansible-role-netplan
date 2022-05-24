@@ -45,9 +45,6 @@ ansible_lint_wrapper() {
 
 trap exit_handler EXIT
 
-echo "Running yamllint..."
-yamllint .
-
 echo "Running ansible-lint..."
 ansible_lint_wrapper
 
