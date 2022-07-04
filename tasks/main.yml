@@ -34,3 +34,18 @@
     state: started
     enabled: yes
   when: netplan_networkd_enable
+
+- name: enable systemd-resolved
+  ansible.builtin.systemd:
+    name: systemd-resolved.service
+    state: started
+    enabled: yes
+  when: netplan_resolved_enable
+
+- name: symlink systemd-resolved stub from /etc/resolv.conf
+  ansible.builtin.file:
+    path: /etc/resolv.conf
+    state: link
+    src: /run/systemd/resolve/stub-resolv.conf
+    force: yes
+  when: netplan_resolved_enable
