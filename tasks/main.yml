@@ -8,10 +8,9 @@
     update_cache: yes
 
 - name: set Netplan configuration
-  ansible.builtin.template:
-    src: config.yaml.j2
+  ansible.builtin.copy:
+    src: "{{ netplan_config|mandatory }}"
     dest: /etc/netplan/config.yaml
-    lstrip_blocks: yes
     mode: u=rw,g=r,o=r
   notify:
     - netplan apply

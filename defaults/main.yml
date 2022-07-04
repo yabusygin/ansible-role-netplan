@@ -1,3 +1,2 @@
 ---
-netplan_ethernets: {}
 netplan_cloudinit_disable: no

@@ -1,4 +1,0 @@
----
-netplan_ethernets:
-  eth0:
-    dhcp4: yes

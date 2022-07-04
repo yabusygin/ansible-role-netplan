@@ -1,7 +1,0 @@
----
-netplan_ethernets:
-  eth0:
-    dhcp4: yes
-  eth1:
-    addresses:
-      - 192.168.0.10/24
