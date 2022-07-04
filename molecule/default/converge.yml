@@ -2,12 +2,6 @@
 - name: converge
   hosts: host1:host2
   tasks:
-    - name: enable networkd
-      ansible.builtin.systemd:
-        name: systemd-networkd.service
-        enabled: yes
-        state: started
-
     - name: install test dependencies
       ansible.builtin.apt:
         name:
