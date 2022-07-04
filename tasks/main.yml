@@ -27,3 +27,10 @@
     path: /etc/netplan/50-cloud-init.yaml
     state: absent
   when: netplan_cloudinit_disable
+
+- name: enable systemd-networkd
+  ansible.builtin.systemd:
+    name: systemd-networkd.service
+    state: started
+    enabled: yes
+  when: netplan_networkd_enable

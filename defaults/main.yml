@@ -1,2 +1,3 @@
 ---
 netplan_cloudinit_disable: no
+netplan_networkd_enable: no
