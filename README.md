@@ -13,20 +13,8 @@ None.
 Role Variables
 --------------
 
-The `netplan_ethernets` variable contains definitions of Ethernet devices. Its
-value has the same structure as the `ethernet:` node of a Netplan configuration
-file. See [Netplan reference][Reference] for details. The following subset of
-device properties is supported:
-
-- `dhcp4`
-- `addresses` (sequence of `addr/prefixlen` strings only)
-- `routes` (`to` and `via` parameters only)
-- `nameservers` (`addresses` parameter only)
-
-To disable Cloud-init network configuration capability set
-`netplan_cloudinit_disable` to `yes`.
-
-[Reference]: https://netplan.io/reference/
+`netplan_config` specifies path to Netplan configuration file on control node.
+This file will be uploaded and applied to managed node.
 
 Dependencies
 ------------
@@ -45,16 +33,7 @@ Example Playbook
       ansible.builtin.import_role:
         name: netplan
       vars:
-        netplan_ethernets:
-          eth0:
-            addresses:
-              - 192.168.0.10/24
-            routes:
-              - to: 0.0.0.0/0
-                via: 192.168.0.1
-            nameservers:
-              addresses:
-                - 10.10.10.10
+        netplan_config: config/netplan.yml
         netplan_cloudinit_disable: yes
 ```
 
