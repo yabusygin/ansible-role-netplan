@@ -1,8 +1,3 @@
 ---
-mock_roles:
-  # A workaround to bypass the following error:
-  # internal-error: the role 'netplan' was not found in <...>
-  # See https://github.com/ansible/ansible-lint/issues/1329
-  - netplan
 skip_list:
   - var-spacing
