@@ -27,3 +27,25 @@
     path: /etc/netplan/50-cloud-init.yaml
     state: absent
   when: netplan_cloudinit_disable
+
+- name: enable systemd-networkd
+  ansible.builtin.systemd:
+    name: systemd-networkd.service
+    state: started
+    enabled: yes
+  when: netplan_networkd_enable
+
+- name: enable systemd-resolved
+  ansible.builtin.systemd:
+    name: systemd-resolved.service
+    state: started
+    enabled: yes
+  when: netplan_resolved_enable
+
+- name: symlink systemd-resolved stub from /etc/resolv.conf
+  ansible.builtin.file:
+    path: /etc/resolv.conf
+    state: link
+    src: /run/systemd/resolve/stub-resolv.conf
+    force: yes
+  when: netplan_resolved_enable

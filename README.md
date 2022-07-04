@@ -16,6 +16,12 @@ Role Variables
 `netplan_config` specifies path to Netplan configuration file on control node.
 This file will be uploaded and applied to managed node.
 
+`netplan_networkd_enable` -- enable systemd-networkd service
+(default value: `no`).
+
+`netplan_resolved_enable` -- enable systemd-resolved service
+(default value: `no`).
+
 Dependencies
 ------------
 
@@ -35,6 +41,8 @@ Example Playbook
       vars:
         netplan_config: config/netplan.yml
         netplan_cloudinit_disable: yes
+        netplan_networkd_enable: yes
+        netplan_resolved_enable: yes
 ```
 
 License

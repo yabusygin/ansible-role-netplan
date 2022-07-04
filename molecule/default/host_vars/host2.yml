@@ -2,3 +2,4 @@
 ansible_python_interpreter: python3
 
 netplan_config: netplan_config/host2.yml
+netplan_networkd_enable: yes
