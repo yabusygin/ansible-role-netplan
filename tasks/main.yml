@@ -31,7 +31,6 @@
 - name: disable ifupdown
   ansible.builtin.systemd:
     name: networking.service
-    state: stopped
     enabled: no
   when: netplan_ifupdown_disable
 
