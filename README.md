@@ -53,6 +53,8 @@ Example Playbook
         netplan_cloudinit_disable: yes
         netplan_networkd_enable: yes
         netplan_resolved_enable: yes
+        netplan_ifupdown_disable: yes
+        netplan_ifupdown_reset_interfaces: yes
 ```
 
 License
