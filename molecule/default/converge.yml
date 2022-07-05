@@ -6,6 +6,7 @@
       ansible.builtin.apt:
         name:
           - iputils-ping
+          - ifupdown
           # Fixes Netplan failure. The following exception is thrown on
           # "netplan apply" command execution:
           # FileNotFoundError: [Errno 2] No such file or directory: 'udevadm'

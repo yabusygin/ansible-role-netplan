@@ -22,6 +22,13 @@ This file will be uploaded and applied to managed node.
 `netplan_resolved_enable` -- enable systemd-resolved service
 (default value: `no`).
 
+`netplan_ifupdown_disable` -- disable "ifupdown" network management system
+(default value: `no`).
+
+`netplan_ifupdown_reset_interfaces` -- reset `/etc/network/interfaces`
+(default value: `no`). Leave loopback interface only. A backup of original
+content is preserved.
+
 Dependencies
 ------------
 

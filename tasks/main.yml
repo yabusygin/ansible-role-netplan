@@ -28,6 +28,21 @@
     state: absent
   when: netplan_cloudinit_disable
 
+- name: disable ifupdown
+  ansible.builtin.systemd:
+    name: networking.service
+    state: stopped
+    enabled: no
+  when: netplan_ifupdown_disable
+
+- name: reset /etc/network/interfaces
+  ansible.builtin.copy:
+    src: interfaces
+    dest: /etc/network/interfaces
+    mode: u=rw,g=r,o=r
+    backup: yes
+  when: netplan_ifupdown_reset_interfaces
+
 - name: enable systemd-networkd
   ansible.builtin.systemd:
     name: systemd-networkd.service
