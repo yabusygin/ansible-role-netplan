@@ -14,7 +14,7 @@ Role Variables
 --------------
 
 `netplan_config` specifies path to Netplan configuration file on control node.
-This file will be uploaded and applied to managed node.
+This file will be uploaded and applied to managed node. Mandatory.
 
 `netplan_networkd_enable` -- enable systemd-networkd service
 (default value: `no`).
