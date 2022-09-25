@@ -1,4 +1,5 @@
 ---
+netplan_installer_disable: no
 netplan_cloudinit_disable: no
 netplan_ifupdown_disable: no
 netplan_ifupdown_reset_interfaces: no
