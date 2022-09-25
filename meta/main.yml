@@ -1,6 +1,7 @@
 ---
 galaxy_info:
   role_name: netplan
+  namespace: yabusygin
   author: Alexey Busygin
   description: An Ansible role that configures networking with Netplan.
   license: MIT
