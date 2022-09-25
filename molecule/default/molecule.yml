@@ -7,7 +7,7 @@ driver:
 lint: ./lint.sh
 platforms:
   - name: host1
-    image: geerlingguy/docker-ubuntu2004-ansible:latest
+    image: ${TEST_IMAGE}
     pre_build_image: true
     command: ""
     privileged: true
@@ -21,7 +21,7 @@ platforms:
     networks:
       - name: test-ansible-role-netplan
   - name: host2
-    image: geerlingguy/docker-ubuntu2004-ansible:latest
+    image: ${TEST_IMAGE}
     pre_build_image: true
     command: ""
     privileged: true
