@@ -1,8 +1,8 @@
 ---
-- name: converge
+- name: Converge
   hosts: host1:host2
   tasks:
-    - name: install test dependencies
+    - name: Install test dependencies
       ansible.builtin.apt:
         name:
           - iputils-ping
@@ -15,6 +15,6 @@
         force_apt_get: yes
         update_cache: yes
 
-    - name: configure Netplan
+    - name: Configure Netplan
       ansible.builtin.import_role:
         name: netplan

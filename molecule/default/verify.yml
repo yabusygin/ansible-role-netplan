@@ -1,17 +1,17 @@
 ---
-- name: verify
+- name: Verify
   hosts: host1
   gather_facts: no
   tasks:
-    - name: ping host2
+    - name: Ping host2
       ansible.builtin.command: ping -c 3 192.168.0.102
       changed_when: no
 
-    - name: get path to backups of original /etc/network/interfaces
+    - name: Get path to backups of original /etc/network/interfaces
       ansible.builtin.command: find /etc/network -name 'interfaces.*~'
       changed_when: no
       register: _result
 
-    - name: check that backup exists
+    - name: Check that backup exists
       ansible.builtin.assert:
-        that: _result.stdout_lines|length == 1
+        that: _result.stdout_lines | length == 1
