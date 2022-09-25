@@ -1,0 +1,15 @@
+---
+galaxy_info:
+  role_name: netplan
+  author: Alexey Busygin
+  description: An Ansible role that configures networking with Netplan.
+  license: MIT
+  min_ansible_version: "2.10"
+  platforms:
+    - name: Ubuntu
+      versions:
+        - focal
+  galaxy_tags:
+    - system
+    - networking
+    - netplan
