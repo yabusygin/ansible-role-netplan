@@ -14,4 +14,4 @@
 
     - name: check that backup exists
       ansible.builtin.assert:
-        that: _result.stdout_lines|length == 1
+        that: _result.stdout_lines | length == 1

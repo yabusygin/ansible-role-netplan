@@ -9,7 +9,7 @@
 
 - name: set Netplan configuration
   ansible.builtin.copy:
-    src: "{{ netplan_config|mandatory }}"
+    src: "{{ netplan_config | mandatory }}"
     dest: /etc/netplan/config.yaml
     mode: u=rw,g=r,o=r
   notify:
