@@ -26,6 +26,8 @@
   ansible.builtin.file:
     path: /etc/netplan/50-cloud-init.yaml
     state: absent
+  notify:
+    - Apply Netplan configuration
   when: netplan_cloudinit_disable
 
 - name: Disable ifupdown
