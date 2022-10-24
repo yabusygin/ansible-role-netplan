@@ -45,10 +45,10 @@ Example Playbook
 
 ```yaml
 ---
-- name: example playbook
+- name: Example playbook
   hosts: server
   tasks:
-    - name: configure networking
+    - name: Configure networking
       ansible.builtin.import_role:
         name: netplan
       vars:
