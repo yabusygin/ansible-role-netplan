@@ -17,4 +17,4 @@
 
     - name: Configure Netplan
       ansible.builtin.import_role:
-        name: netplan
+        name: yabusygin.netplan
