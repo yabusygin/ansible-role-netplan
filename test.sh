@@ -9,7 +9,7 @@ for image in "${@}"; do
     echo "Running Molecule tests for '${image}'..."
     TEST_IMAGE="${image}" molecule test --all
     if [ $? -ne 0 ]; then
-        echo "Error: Molecule test failed" >&2
+        echo "Error: Molecule test failed (platform: ${image})" >&2
         exit 1
     fi
 done
