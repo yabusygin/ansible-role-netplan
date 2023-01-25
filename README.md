@@ -50,7 +50,7 @@ Example Playbook
   tasks:
     - name: Configure networking
       ansible.builtin.import_role:
-        name: netplan
+        name: yabusygin.netplan
       vars:
         netplan_config: config/netplan.yml
         netplan_installer_disable: yes
