@@ -1,6 +1,10 @@
 Ansible Role for Netplan
 ========================
 
+**DEPRECATED.** Use the [`yabusygin.networking`][Collection] collection.
+
+[Collection]: https://galaxy.ansible.com/ui/repo/published/yabusygin/networking/
+
 An Ansible role that configures networking with [Netplan][Home].
 
 [Home]: https://netplan.io/
